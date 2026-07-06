@@ -1,0 +1,34 @@
+name: Daily Stock Scanner
+
+on:
+  schedule:
+    # ప్రతిరోజూ సోమవారం నుండి శుక్రవారం వరకు భారతీయ కాలమానం ప్రకారం సాయంత్రం 4:30 గంటలకు (11:00 UTC) రన్ అవుతుంది
+    - cron: '0 11 * * 1-5'
+  workflow_dispatch: # మనకు కావాలన్నప్పుడు మాన్యువల్‌గా రన్ చేసుకోవడానికి
+
+jobs:
+  run-scanner:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: |
+        pip install yfinance
+
+    - name: Run Stock Scanner
+      run: python app.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "action@github.com"
+        git add data.json
+        git commit -m "Auto-updated stock scan data [skip ci]" || exit 0
+        git push
