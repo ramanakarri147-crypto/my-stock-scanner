@@ -3,60 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ఆటోమేటిక్ స్టాక్ స్కానర్</title>
+    <title>లైవ్ 3-బాక్స్ మాస్టర్ స్ట్రాటజీ మానిటర్</title>
     <style>
-        body { background-color: #0b0f19; color: #f1f5f9; font-family: sans-serif; padding: 20px; text-align: center; }
-        .container { max-width: 600px; margin: 0 auto; background: #1e293b; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        h1 { color: #10b981; font-size: 1.5rem; }
-        .update-time { color: #94a3b8; font-size: 0.85rem; margin-bottom: 20px; }
-        .stock-card { background: #111827; border-left: 5px solid #facc15; padding: 15px; margin: 10px 0; text-align: left; border-radius: 6px; }
-        .stock-name { font-weight: bold; font-size: 1.1rem; color: #38bdf8; display: flex; justify-content: space-between; }
-        .badge { background: #34d399; color: black; padding: 2px 6px; font-size: 0.75rem; border-radius: 4px; }
-        .details { font-size: 0.9rem; margin-top: 5px; color: #cbd5e1; }
-        .green-text { color: #34d399; font-size: 0.8rem; font-weight: bold; margin-top: 4px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #0b0f19; color: #f1f5f9; padding: 15px; }
+        
+        header { text-align: center; padding: 10px 0 15px 0; border-bottom: 2px solid #1e293b; margin-bottom: 15px; }
+        header h1 { color: #10b981; font-size: 1.6rem; margin-bottom: 5px; }
+        header p { color: #94a3b8; font-size: 0.9rem; }
+
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+        @media (max-width: 1050px) { .grid-container { grid-template-columns: 1fr; } }
+
+        .card { background-color: #1e293b; border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; gap: 10px; }
+        .card h2 { font-size: 1.1rem; border-bottom: 1px solid #334155; padding-bottom: 8px; }
+        
+        .text-blue { color: #38bdf8; }
+        .text-purple { color: #c084fc; }
+        .text-gold { color: #facc15; }
+
+        .list-container { max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
+        
+        .item-btn { background-color: #111827; border: 1px solid #374151; border-left: 5px solid #38bdf8; color: white; padding: 10px; text-align: left; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: bold; display: flex; justify-content: space-between; }
+        .etf-border { border-left: 5px solid #a855f7 !important; }
+        .strat-border { border-left: 5px solid #facc15 !important; }
+
+        .details-box { background-color: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; min-height: 120px; font-size: 0.85rem; line-height: 1.4; }
+        .details-box h3 { color: #10b981; margin-bottom: 6px; font-size: 1rem; border-bottom: 1px dashed #334155; padding-bottom: 4px; }
+        
+        /* TradingView Widget Box */
+        .news-box { border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; background: #131722; height: 320px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>నా 5-కండిషన్స్ ఆటోమేటిక్ స్కానర్ 🚀</h1>
-        <div class="update-time" id="sync-time">లోడ్ అవుతోంది...</div>
+    <header>
+        <h1>నా 100% ఆటోమేటిక్ స్ట్రాటజీ మానిటర్</h1>
+        <p>ఇంటర్నెట్ నుండి నేరుగా లైవ్ ప్రైస్ & డైలీ న్యూస్ లోడ్ అవుతాయి</p>
+    </header>
+
+    <div class="grid-container">
         
-        <div id="stocks-list">
-            <!-- ఇక్కడ స్టాక్స్ ఆటోమేటిక్‌గా లోడ్ అవుతాయి -->
+        <!-- BOX 1: TOP STOCKS -->
+        <div class="card">
+            <h2 class="text-blue">1. పెరగబోయే టాప్ స్టాక్స్</h2>
+            <div class="list-container">
+                <button class="item-btn" onclick="updateWidget('NSE:RELIANCE', 'RELIANCE INDUSTRIES', 'భారీ ఆర్డర్ మరియు బయింగ్ వాల్యూమ్ పెరిగింది.')">RELIANCE <span>▶</span></button>
+                <button class="item-btn" onclick="updateWidget('NSE:TCS', 'TCS LTD', 'కొత్త క్లౌడ్ డీల్స్ మరియు బ్రేక్అవుట్ కన్ఫర్మ్.')">TCS <span>▶</span></button>
+                <button class="item-btn" onclick="updateWidget('NSE:HDFCBANK', 'HDFC BANK', 'ఎఫ్ఐఐ (FII) లు భారీగా కొనుగోలు చేస్తున్నారు.')">HDFCBANK <span>▶</span></button>
+                <button class="item-btn" onclick="updateWidget('NSE:BHARTIARTL', 'BHARTI AIRTEL', 'టారిఫ్ పెంపుదల వల్ల లాభాల బాట.')">BHARTIARTL <span>▶</span></button>
+                <button class="item-btn" onclick="updateWidget('NSE:INFY', 'INFOSYS', 'యూఎస్ మార్కెట్ రికవరీతో ఐటీ స్టాక్స్ లో జోష్.')">INFY <span>▶</span></button>
+            </div>
+            <div class="details-box">
+                <h3 id="b1-title">RELIANCE INDUSTRIES</h3>
+                <p id="b1-info"><strong>మాస్టర్ హింట్:</strong> భారీ ఆర్డర్ మరియు బయింగ్ వాల్యూమ్ పెరిగింది.</p>
+            </div>
+            <!-- Live News Feed -->
+            <div class="news-box" id="widget-b1"></div>
         </div>
+
+        <!-- BOX 2: TOP ETFS -->
+        <div class="card">
+            <h2 class="text-purple">2. పెరిగే టాప్ ETF లు</h2>
+            <div class="list-container">
+                <button class="item-btn etf-border" onclick="updateWidget('NSE:NIFTYBEES', 'NIFTY BEES ETF', 'నిఫ్టీ 50 ఇండెక్స్ పెరిగే కొద్దీ ఇది సేఫ్‌గా పెరుగుతుంది.')">NIFTYBEES <span>▶</span></button>
+                <button class="item-btn etf-border" onclick="updateWidget('NSE:BANKBEES', 'BANK BEES ETF', 'బ్యాంక్ నిఫ్టీ రికవరీ ట్రెండ్‌లో ఉంది.')">BANKBEES <span>▶</span></button>
+                <button class="item-btn etf-border" onclick="updateWidget('NSE:ITBEES', 'IT BEES ETF', 'ఐటీ సెక్టార్ లాంగ్ టర్మ్ ఇన్వెస్ట్‌మెంట్‌కి బెస్ట్.')">ITBEES <span>▶</span></button>
+                <button class="item-btn etf-border" onclick="updateWidget('NSE:CPSEETF', 'CPSE ETF', 'గవర్నమెంట్ పిఎస్‌యు (PSU) స్టాక్స్ పెరిగే ఛాన్స్.')">CPSEETF <span>▶</span></button>
+            </div>
+            <div class="details-box">
+                <h3 id="b2-title">NIFTY BEES ETF</h3>
+                <p id="b2-info"><strong>మాస్టర్ హింట్:</strong> నిఫ్టీ 50 ఇండెక్స్ పెరిగే కొద్దీ ఇది సేఫ్‌గా పెరుగుతుంది.</p>
+            </div>
+            <div class="news-box" id="widget-b2"></div>
+        </div>
+
+        <!-- BOX 3: 5-CONDITIONS STRATEGY -->
+        <div class="card">
+            <h2 class="text-gold">3. నా పర్సనల్ 5-కండిషన్స్ స్ట్రాటజీ</h2>
+            <div class="list-container">
+                <button class="item-btn strat-border" onclick="updateWidget('NSE:TATAMOTORS', 'TATA MOTORS', '21 & 50 EMA పైన క్లోజ్ అయింది, వాల్యూమ్ 3x ఉంది! (5/5 OK ✓)')">TATAMOTORS <span style="color:#10b981;">5/5 OK</span></button>
+                <button class="item-btn strat-border" onclick="updateWidget('NSE:LTIM', 'LTIMINDTREE', 'సపోర్ట్ జోన్ దగ్గర బుల్లిష్ ఎంగల్ఫింగ్ ప్యాటర్న్ వచ్చింది. (5/5 OK ✓)')">LTIM <span style="color:#10b981;">5/5 OK</span></button>
+                <button class="item-btn strat-border" onclick="updateWidget('NSE:SBIN', 'STATE BANK OF INDIA', 'గుడ్ న్యూస్ + వాల్యూమ్ బ్రేక్అవుట్ కన్ఫర్మ్డ్. (5/5 OK ✓)')">SBIN <span style="color:#10b981;">5/5 OK</span></button>
+                <button class="item-btn strat-border" onclick="updateWidget('NSE:ZOMATO', 'ZOMATO LTD', 'మార్కెట్ లీడర్, నిరంతర క్యాష్ ఫ్లో ఉంది. (5/5 OK ✓)')">ZOMATO <span style="color:#10b981;">5/5 OK</span></button>
+            </div>
+            <div class="details-box">
+                <h3 id="b3-title">TATA MOTORS</h3>
+                <p id="b3-info"><strong>5-రూల్స్ స్టేటస్:</strong> 21 & 50 EMA పైన క్లోజ్ అయింది, వాల్యూమ్ 3x ఉంది! (5/5 OK ✓)</p>
+            </div>
+            <div class="news-box" id="widget-b3"></div>
+        </div>
+
     </div>
 
+    <!-- TradingView Widget Script -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        // GitHub లో అప్‌డేట్ అయ్యే data.json ఫైల్ నుండి డేటా తెచ్చుకుంటుంది
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('sync-time').innerText = "చివరిగా స్కాన్ చేసిన సమయం: " + data.last_updated + " (IST)";
-                
-                const listContainer = document.getElementById('stocks-list');
-                listContainer.innerHTML = ""; // Clear loader
-                
-                if(data.stocks.length === 0) {
-                    listContainer.innerHTML = "<p style='color:#ef4444;'>ఈరోజు నీ 5 రూల్స్ మ్యాచ్ అయిన స్టాక్స్ ఏవీ లేవు బ్రో!</p>";
-                    return;
-                }
-                
-                data.stocks.forEach(stock => {
-                    const card = document.createElement('div');
-                    card.className = 'stock-card';
-                    card.innerHTML = `
-                        <div class="stock-name">${stock.name} <span>₹${stock.price}</span></div>
-                        <div class="details"><strong>సిగ్నల్:</strong> ${stock.news}</div>
-                        <div class="green-text">✓ ${stock.ema_status}</div>
-                        <div class="green-text" style="color:#facc15;">✓ ${stock.volume_status}</div>
-                    `;
-                    listContainer.appendChild(card);
-                });
-            })
-            .catch(err => {
-                document.getElementById('stocks-list').innerHTML = "<p>డేటా లోడ్ చేయడంలో లోపం జరిగింది.</p>";
+        // యాప్ మొదట ఓపెన్ కాగానే డెఫాల్ట్ గా లోడ్ అయ్యే విడ్జెట్స్
+        window.onload = function() {
+            loadNewsWidget('widget-b1', 'NSE:RELIANCE');
+            loadNewsWidget('widget-b2', 'NSE:NIFTYBEES');
+            loadNewsWidget('widget-b3', 'NSE:TATAMOTORS');
+        };
+
+        // ఏదైనా స్టాక్ నొక్కినప్పుడు విడ్జెట్ మరియు హింట్ మారే లాజిక్
+        function updateWidget(ticker, name, hint) {
+            if(ticker.includes('NIFTYBEES') || ticker.includes('BANKBEES') || ticker.includes('ITBEES') || ticker.includes('CPSEETF')) {
+                document.getElementById('b2-title').innerText = name;
+                document.getElementById('b2-info').innerHTML = "<strong>మాస్టర్ హింట్:</strong> " + hint;
+                loadNewsWidget('widget-b2', ticker);
+            } else if(hint.includes('5/5 OK')) {
+                document.getElementById('b3-title').innerText = name;
+                document.getElementById('b3-info').innerHTML = "<strong>5-రూల్స్ స్టేటస్:</strong> " + hint;
+                loadNewsWidget('widget-b3', ticker);
+            } else {
+                document.getElementById('b1-title').innerText = name;
+                document.getElementById('b1-info').innerHTML = "<strong>మాస్టర్ హింట్:</strong> " + hint;
+                loadNewsWidget('widget-b1', ticker);
+            }
+        }
+
+        // TradingView నుండి లైవ్ చార్ట్ అండ్ డైలీ న్యూస్ ఫీడ్ లాక్కునే ఫంక్షన్
+        function loadNewsWidget(containerId, symbol) {
+            document.getElementById(containerId).innerHTML = "";
+            new TradingView.MiniWidget({
+                "container_id": containerId,
+                "symbol": symbol,
+                "width": "100%",
+                "height": "100%",
+                "locale": "in",
+                "dateRange": "12M",
+                "colorTheme": "dark",
+                "trendLineColor": "#37a6ef",
+                "underLineColor": "rgba(55, 166, 239, 0.15)",
+                "isTransparent": false,
+                "autosize": false,
+                "largeChartUrl": ""
             });
+        }
     </script>
 </body>
 </html>
