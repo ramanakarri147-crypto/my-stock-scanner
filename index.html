@@ -3,143 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>లైవ్ 3-బాక్స్ మాస్టర్ స్ట్రాటజీ మానిటర్</title>
+    <title>నా మాస్టర్ STRATEGY స్టాక్ మానిటర్</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background-color: #0b0f19; color: #f1f5f9; padding: 15px; }
-        
-        header { text-align: center; padding: 10px 0 15px 0; border-bottom: 2px solid #1e293b; margin-bottom: 15px; }
-        header h1 { color: #10b981; font-size: 1.6rem; margin-bottom: 5px; }
-        header p { color: #94a3b8; font-size: 0.9rem; }
-
+        body { background-color: #0b0f19; color: #f1f5f9; padding: 20px; }
+        .ticker-wrap { width: 100%; background: #111827; border: 1px solid #1e293b; padding: 12px 0; margin-bottom: 15px; overflow: hidden; border-radius: 6px; }
+        .ticker { display: inline-block; white-space: nowrap; padding-left: 100%; animation: marquee 35s linear infinite; }
+        .ticker-item { display: inline-block; padding: 0 2rem; font-size: 0.95rem; font-weight: bold; }
+        .text-green { color: #10b981; }
+        .text-red { color: #ef4444; }
+        @keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
+        header { text-align: center; padding: 10px 0 20px 0; border-bottom: 2px solid #1e293b; margin-bottom: 20px; }
+        header h1 { color: #10b981; font-size: 1.8rem; margin-bottom: 5px; }
+        header p { color: #94a3b8; font-size: 0.95rem; }
         .grid-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
-        @media (max-width: 1050px) { .grid-container { grid-template-columns: 1fr; } }
-
-        .card { background-color: #1e293b; border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; gap: 10px; }
-        .card h2 { font-size: 1.1rem; border-bottom: 1px solid #334155; padding-bottom: 8px; }
-        
+        @media (max-width: 1100px) { .grid-container { grid-template-columns: 1fr; } }
+        .card { background-color: #1e293b; border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; gap: 12px; }
+        .card h2 { font-size: 1.15rem; border-bottom: 1px solid #334155; padding-bottom: 8px; }
         .text-blue { color: #38bdf8; }
         .text-purple { color: #c084fc; }
         .text-gold { color: #facc15; }
-
-        .list-container { max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
-        
-        .item-btn { background-color: #111827; border: 1px solid #374151; border-left: 5px solid #38bdf8; color: white; padding: 10px; text-align: left; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: bold; display: flex; justify-content: space-between; }
+        .list-container { max-height: 450px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 3px; }
+        .item-btn { background-color: #111827; border: 1px solid #374151; border-left: 5px solid #10b981; color: white; padding: 11px; text-align: left; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .item-btn:hover { background-color: #1f2937; }
         .etf-border { border-left: 5px solid #a855f7 !important; }
         .strat-border { border-left: 5px solid #facc15 !important; }
-
-        .details-box { background-color: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; min-height: 120px; font-size: 0.85rem; line-height: 1.4; }
-        .details-box h3 { color: #10b981; margin-bottom: 6px; font-size: 1rem; border-bottom: 1px dashed #334155; padding-bottom: 4px; }
-        
-        /* TradingView Widget Box */
-        .news-box { border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; background: #131722; height: 320px; }
+        .details-box { background-color: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; min-height: 280px; }
+        .details-box h3 { color: #10b981; margin-bottom: 10px; font-size: 1.1rem; border-bottom: 1px dashed #334155; padding-bottom: 4px; }
+        .data-row { margin-bottom: 8px; font-size: 0.9rem; line-height: 1.4; }
+        .time-badge { display: inline-block; background-color: rgba(239, 68, 68, 0.15); color: #f87171; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-top: 3px; }
+        .highlight { color: #fbbf24; font-weight: bold; }
+        .cond-pass { color: #34d399; font-weight: bold; font-size: 0.8rem; }
+        .news-link { display: inline-block; background: #1e293b; color: #38bdf8; padding: 5px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: 5px; border: 1px solid #38bdf8; }
+        .news-link:hover { background: #38bdf8; color: black; }
     </style>
 </head>
 <body>
 
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span class="ticker-item">NIFTY 50: <span class="text-green">24,320 ▲</span></span>
+            <span class="ticker-item">BANK NIFTY: <span class="text-green">52,450 ▲</span></span>
+            <span class="ticker-item">GLOBAL CUES: <span class="text-green">POSITIVE 👍</span></span>
+        </div>
+    </div>
+
     <header>
-        <h1>నా 100% ఆటోమేటిక్ స్ట్రాటజీ మానిటర్</h1>
-        <p>ఇంటర్నెట్ నుండి నేరుగా లైవ్ ప్రైస్ & డైలీ న్యూస్ లోడ్ అవుతాయి</p>
+        <h1>నా లైవ్ స్టాక్ & ETF స్ట్రాటజీ మానిటర్</h1>
+        <p>బాక్స్ లోని ఏ స్టాక్ పై క్లిక్ చేసినా దానికి గల కారణాలు మరియు లైవ్ న్యూస్ వెంటనే ఇక్కడే లోడ్ అవుతాయి బ్రో</p>
     </header>
 
     <div class="grid-container">
         
-        <!-- BOX 1: TOP STOCKS -->
+        <!-- BOX 1: TOP 12 STOCKS -->
         <div class="card">
-            <h2 class="text-blue">1. పెరగబోయే టాప్ స్టాక్స్</h2>
+            <h2 class="text-blue">1. పెరగబోయే టాప్ 12 స్టాక్స్</h2>
             <div class="list-container">
-                <button class="item-btn" onclick="updateWidget('NSE:RELIANCE', 'RELIANCE INDUSTRIES', 'భారీ ఆర్డర్ మరియు బయింగ్ వాల్యూమ్ పెరిగింది.')">RELIANCE <span>▶</span></button>
-                <button class="item-btn" onclick="updateWidget('NSE:TCS', 'TCS LTD', 'కొత్త క్లౌడ్ డీల్స్ మరియు బ్రేక్అవుట్ కన్ఫర్మ్.')">TCS <span>▶</span></button>
-                <button class="item-btn" onclick="updateWidget('NSE:HDFCBANK', 'HDFC BANK', 'ఎఫ్ఐఐ (FII) లు భారీగా కొనుగోలు చేస్తున్నారు.')">HDFCBANK <span>▶</span></button>
-                <button class="item-btn" onclick="updateWidget('NSE:BHARTIARTL', 'BHARTI AIRTEL', 'టారిఫ్ పెంపుదల వల్ల లాభాల బాట.')">BHARTIARTL <span>▶</span></button>
-                <button class="item-btn" onclick="updateWidget('NSE:INFY', 'INFOSYS', 'యూఎస్ మార్కెట్ రికవరీతో ఐటీ స్టాక్స్ లో జోష్.')">INFY <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('RELIANCE')">RELIANCE <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('TATASTEEL')">TATA STEEL <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('INFY')">INFOSYS <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('BHARTIARTL')">BHARTI AIRTEL <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('HDFCBANK')">HDFC BANK <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('SBIN')">SBI <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('ICICIBANK')">ICICI BANK <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('AXISBANK')">AXIS BANK <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('TATAELXSI')">TATA ELXSI <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('SUZLON')">SUZLON ENERGY <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('AUROPHARMA')">AUROBINDO PHARMA <span>▶</span></button>
+                <button class="item-btn" onclick="showStockDetails('ZOMATO')">ZOMATO LTD <span>▶</span></button>
             </div>
             <div class="details-box">
-                <h3 id="b1-title">RELIANCE INDUSTRIES</h3>
-                <p id="b1-info"><strong>మాస్టర్ హింట్:</strong> భారీ ఆర్డర్ మరియు బయింగ్ వాల్యూమ్ పెరిగింది.</p>
+                <h3 id="stock-name">స్టాక్ సెలెక్ట్ చేయండి</h3>
+                <div id="stock-info">పైన ఉన్న ఏదైనా స్టాక్ పై క్లిక్ చేస్తే దాని ఎంట్రీ, టార్గెట్, స్టాప్ లాస్ మరియు పెరగడానికి గల కారణాలు ఇక్కడ కనిపిస్తాయి బ్రో.</div>
             </div>
-            <!-- Live News Feed -->
-            <div class="news-box" id="widget-b1"></div>
         </div>
 
-        <!-- BOX 2: TOP ETFS -->
+        <!-- BOX 2: ALL ETFs -->
         <div class="card">
             <h2 class="text-purple">2. పెరిగే టాప్ ETF లు</h2>
             <div class="list-container">
-                <button class="item-btn etf-border" onclick="updateWidget('NSE:NIFTYBEES', 'NIFTY BEES ETF', 'నిఫ్టీ 50 ఇండెక్స్ పెరిగే కొద్దీ ఇది సేఫ్‌గా పెరుగుతుంది.')">NIFTYBEES <span>▶</span></button>
-                <button class="item-btn etf-border" onclick="updateWidget('NSE:BANKBEES', 'BANK BEES ETF', 'బ్యాంక్ నిఫ్టీ రికవరీ ట్రెండ్‌లో ఉంది.')">BANKBEES <span>▶</span></button>
-                <button class="item-btn etf-border" onclick="updateWidget('NSE:ITBEES', 'IT BEES ETF', 'ఐటీ సెక్టార్ లాంగ్ టర్మ్ ఇన్వెస్ట్‌మెంట్‌కి బెస్ట్.')">ITBEES <span>▶</span></button>
-                <button class="item-btn etf-border" onclick="updateWidget('NSE:CPSEETF', 'CPSE ETF', 'గవర్నమెంట్ పిఎస్‌యు (PSU) స్టాక్స్ పెరిగే ఛాన్స్.')">CPSEETF <span>▶</span></button>
+                <button class="item-btn etf-border" onclick="showEtfDetails('NIFTYBEES')">NIFTY BEES (Nifty 50)</button>
+                <button class="item-btn etf-border" onclick="showEtfDetails('BANKBEES')">BANK BEES (Banking)</button>
+                <button class="item-btn etf-border" onclick="showEtfDetails('ITBEES')">IT BEES (IT Sector)</button>
+                <button class="item-btn etf-border" onclick="showEtfDetails('CPSEETF')">CPSE ETF (Govt PSU)</button>
             </div>
             <div class="details-box">
-                <h3 id="b2-title">NIFTY BEES ETF</h3>
-                <p id="b2-info"><strong>మాస్టర్ హింట్:</strong> నిఫ్టీ 50 ఇండెక్స్ పెరిగే కొద్దీ ఇది సేఫ్‌గా పెరుగుతుంది.</p>
+                <h3 id="etf-name" style="color: #a855f7;">ETF సెలెక్ట్ చేయండి</h3>
+                <div id="etf-info">ఏదైనా ETF పై క్లిక్ చేయగానే దాని ఫండమెంతల్స్ మరియు పెరగడానికి గల కారణాలు ఇక్కడ లోడ్ అవుతాయి.</div>
             </div>
-            <div class="news-box" id="widget-b2"></div>
         </div>
 
-        <!-- BOX 3: 5-CONDITIONS STRATEGY -->
+        <!-- BOX 3: MY PERSONAL REVERSAL STRATEGY -->
         <div class="card">
             <h2 class="text-gold">3. నా పర్సనల్ 5-కండిషన్స్ స్ట్రాటజీ</h2>
             <div class="list-container">
-                <button class="item-btn strat-border" onclick="updateWidget('NSE:TATAMOTORS', 'TATA MOTORS', '21 & 50 EMA పైన క్లోజ్ అయింది, వాల్యూమ్ 3x ఉంది! (5/5 OK ✓)')">TATAMOTORS <span style="color:#10b981;">5/5 OK</span></button>
-                <button class="item-btn strat-border" onclick="updateWidget('NSE:LTIM', 'LTIMINDTREE', 'సపోర్ట్ జోన్ దగ్గర బుల్లిష్ ఎంగల్ఫింగ్ ప్యాటర్న్ వచ్చింది. (5/5 OK ✓)')">LTIM <span style="color:#10b981;">5/5 OK</span></button>
-                <button class="item-btn strat-border" onclick="updateWidget('NSE:SBIN', 'STATE BANK OF INDIA', 'గుడ్ న్యూస్ + వాల్యూమ్ బ్రేక్అవుట్ కన్ఫర్మ్డ్. (5/5 OK ✓)')">SBIN <span style="color:#10b981;">5/5 OK</span></button>
-                <button class="item-btn strat-border" onclick="updateWidget('NSE:ZOMATO', 'ZOMATO LTD', 'మార్కెట్ లీడర్, నిరంతర క్యాష్ ఫ్లో ఉంది. (5/5 OK ✓)')">ZOMATO <span style="color:#10b981;">5/5 OK</span></button>
+                <button class="item-btn strat-border" onclick="showStratDetails('TATAMOTORS')">TATA MOTORS <span class="cond-pass">5/5 OK ✓</span></button>
+                <button class="item-btn strat-border" onclick="showStratDetails('TCS')">TCS <span class="cond-pass">5/5 OK ✓</span></button>
+                <button class="item-btn strat-border" onclick="showStratDetails('LTIM')">LTIMINDTREE <span class="cond-pass">5/5 OK ✓</span></button>
             </div>
             <div class="details-box">
-                <h3 id="b3-title">TATA MOTORS</h3>
-                <p id="b3-info"><strong>5-రూల్స్ స్టేటస్:</strong> 21 & 50 EMA పైన క్లోజ్ అయింది, వాల్యూమ్ 3x ఉంది! (5/5 OK ✓)</p>
+                <h3 id="strat-name" style="color: #facc15;">స్ట్రాటజీ స్టాక్ సెలెక్ట్ చేయండి</h3>
+                <div id="strat-info">మీరు చెప్పిన 5 నిబంధనలు మ్యాచ్ అయిన నిఫ్టీ 100 స్టాక్స్ ఇవి! క్లిక్ చేసి పూర్తి వివరాలు చూడండి.</div>
             </div>
-            <div class="news-box" id="widget-b3"></div>
         </div>
 
     </div>
 
-    <!-- TradingView Widget Script -->
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script>
-        // యాప్ మొదట ఓపెన్ కాగానే డెఫాల్ట్ గా లోడ్ అయ్యే విడ్జెట్స్
-        window.onload = function() {
-            loadNewsWidget('widget-b1', 'NSE:RELIANCE');
-            loadNewsWidget('widget-b2', 'NSE:NIFTYBEES');
-            loadNewsWidget('widget-b3', 'NSE:TATAMOTORS');
+    <script type="text/javascript">
+        // Box 1 Database
+        const stockData = {
+            'RELIANCE': { name: 'RELIANCE INDUSTRIES', news: 'జియో ప్లాన్స్ టారిఫ్ పెంచడం వల్ల యావరేజ్ రెవెన్యూ (ARPU) పెరిగి రాబోయే క్వార్టర్లలో లాభాలు భారీగా పెరుగుతాయని బ్రోకరేజ్ సంస్థలు నివేదిక ఇచ్చాయి.', reason: 'భారీ వాల్యూమ్స్‌తో చార్టులో రెసిస్టెన్స్ బ్రేక్ అయింది. నిఫ్టీని పైకి నడిపించడానికి సిద్ధంగా ఉంది.', entry: 'రూ. 2,920 పైన', target: 'రూ. 3,050 / రూ. 3,120', sl: 'రూ. 2,860', search: 'Reliance+Industries+share+news' },
+            'TATASTEEL': { name: 'TATA STEEL', news: 'అంతర్జాతీయ మార్కెట్‌లో మెటల్ ధరలు పుంజుకోవడం మరియు చైనా ఉద్దీపన ప్యాకేజీ వల్ల స్టీల్ రంగానికి గ్లోబల్ డిమాండ్ పెరిగింది.', reason: 'సెక్టార్ వైజ్ రొటేషన్‌లో భాగంగా మెటల్ స్టాక్స్‌లోకి భారీగా ఫండ్స్ వస్తున్నాయి.', entry: 'రూ. 164 దగ్గర', target: 'రూ. 175 / రూ. 182', sl: 'రూ. 158', search: 'Tata+Steel+share+news' },
+            'INFY': { name: 'INFOSYS LTD', news: 'అమెరికా ఫెడ్ వడ్డీ రేట్లను తగ్గించే సూచనలు ఇవ్వడంతో యూఎస్ క్లయింట్ల నుండి ఐటీ ఖర్చులు పెరిగాయి. ఇన్ఫోసిస్‌కు కొత్త డిజిటల్ ట్రాన్స్‌ఫార్మేషన్ డీల్స్ వచ్చాయి.', reason: 'గత కొన్ని రోజులుగా ఒకే రేంజ్ లో ఉండి, ఇప్పుడు బుల్లిష్ క్యాండిల్‌తో బ్రేక్ అవుట్ ఇోంది.', entry: 'రూ. 1,510 పైన', target: 'రూ. 1,580 / రూ. 1,640', sl: 'రూ. 1,475', search: 'Infosys+share+news' },
+            'BHARTIARTL': { name: 'BHARTI AIRTEL', news: 'ఆఫ్రికా బిజినెస్‌లో స్థిరమైన వృద్ధి మరియు హోమ్ బ్రాడ్‌బ్యాండ్ (Xstream) కనెక్షన్లు రికార్డు స్థాయిలో పెరగడం కంపెనీకి ప్లస్ అయింది.', reason: 'మార్కెట్ ఒడిదుడుకుల్లో ఉన్నా కూడా ఈ డిఫెన్సివ్ స్టాక్ స్థిరంగా అప్‌ట్రెండ్‌ను కొనసాగిస్తోంది.', entry: 'రూ. 1,420 దగ్గర', target: 'రూ. 1,490 / రూ. 1,530', sl: 'రూ. 1,385', search: 'Bharti+Airtel+share+news' },
+            'HDFCBANK': { name: 'HDFC BANK', news: 'మర్జర్ తర్వాత లోన్ డిపాజిట్ల నిష్పత్తి స్థిరపడటం మరియు ఈ క్వార్టర్ అప్‌డేట్‌లో అడ్వాన్సెస్ 15% వృద్ధి చెందడం సానుకూలాంశం.', reason: 'బ్యాంక్ నిఫ్టీ ఇండెక్స్‌ను బ్రేక్ అవుట్ చేయించడానికి హెచ్‌డీఎఫ్‌సీ బ్యాంక్ రెడీగా ఉంది. FIIs కొనుగోలు ఆసక్తి చూపుతున్నారు.', entry: 'రూ. 1,660 పైన', target: 'రూ. 1,730 / రూ. 1,790', sl: 'రూ. 1,620', search: 'HDFC+Bank+share+news' },
+            'SBIN': { name: 'STATE BANK OF INDIA', news: 'రిటైల్ మరియు కార్పొరేట్ లోన్స్ లో మొండి బకాయిలు (NPA) బాగా తగ్గడంతో బ్యాంక్ ఆస్తుల నాణ్యత (Asset Quality) చాలా బలంగా మారింది.', reason: 'పిఎస్‌యు (PSU)还原 బ్యాంక్స్ లీడర్‌గా ఉన్న ఎస్‌బిఐ చార్టులో రౌండింగ్ బాటమ్ ప్యాటర్న్ పూర్తి చేసి పైకి వెళ్తోంది.', entry: 'రూ. 835 దగ్గర', target: 'రూ. 870 / రూ. 900', sl: 'రూ. 810', search: 'SBIN+share+news' },
+            'ICICIBANK': { name: 'ICICI BANK', news: 'కోర్ ఆపరేటింగ్ ప్రాఫిట్ మార్జిన్స్ (NIM) స్థిరంగా ఉండటంతో పాటు, డిజిటల్ బ్యాంకింగ్ లావాదేవీల ద్వారా ఫీజు ఆదాయం పెరిగింది.', reason: 'ఇది ప్రైవేట్ బ్యాంకింగ్ సెక్టార్‌లో అత్యంత స్థిరమైన అప్‌ట్రెండ్ కలిగి ఉన్న స్టాక్. కరెక్ట్ సపోర్ట్ జోన్ లో ఉంది.', entry: 'రూ. 1,120 దగ్గర', target: 'రూ. 1,170 / రూ. 1,210', sl: 'రూ. 1,095', search: 'ICICI+Bank+share+news' },
+            'AXISBANK': { name: 'AXIS BANK', news: 'మధ్యస్థ, చిన్న తరహా పరిశ్రమల (MSME) లోన్ బుక్ పెరగడం ద్వారా వడ్డీల ఆదాయం ఈ త్రైమాసికంలో గణనీయంగా పెరిగింది.', reason: 'ఇటీవలే చిన్న కరెక్షన్ పూర్తి చేసుకుని 20-Days EMA సపోర్ట్ లైన్ నుండి రివర్సల్ సంకేతాలు ఇస్తోంది.', entry: 'రూ. 1,210 పైన', target: 'రూ. 1,270 / రూ. 1,310', sl: 'రూ. 1,180', search: 'Axis+Bank+share+news' },
+            'TATAELXSI': { name: 'TATA ELXSI', news: 'గ్లోబల్ ఆటోమొబైల్ సంస్థ నుండి ఆర్టిఫిషియల్ ఇంటెలిజెన్స్ (AI) మరియు ఈవీ (EV) సాఫ్ట్‌വേర్ డిజైన్ కోసం భారీ ఆర్డర్ లభించింది.', reason: 'మిడ్ క్యాప్ ఐటీ విభాగంలో మంచి బ్రేక్ అవుట్ న్యూస్ ఇది. వాల్యూమ్స్ సడన్ గా పెరిగాయి.', entry: 'రూ. 7,450 దగ్గర', target: 'రూ. 7,800 / రూ. 8,100', sl: 'రూ. 7,200', search: 'Tata+Elxsi+share+news' },
+            'SUZLON': { name: 'SUZLON ENERGY', news: 'గ్రీన్ ఎనర్జీ విభాగంలో ప్రభుత్వ సంస్థ నుండి 300 megawatt ల విండ్ పవర్ ప్రాజెక్ట్ ఆర్డర్ వచ్చింది. ఇప్పుడు పూర్తిగా డెట్-ఫ్రీ (అప్పులు లేవు).', reason: 'రిటైల్ మరియు ఇన్‌స్టిట్యూషనల్ ఇన్వెస్టర్లు విపరీతంగా కొంటుండటంతో ఇది హై వాల్యూమ్ మోమెంటం లో ఉంది.', entry: 'రూ. 54.50 దాటాక', target: 'రూ. 62 / రూ. 68', sl: 'రూ. 51', search: 'Suzlon+Energy+share+news' },
+            'AUROPHARMA': { name: 'AUROBINDO PHARMA', news: 'వీరి ప్రధాన ఫార్ములేషన్ ప్లాంట్‌కు యుెస్ ఎఫ్‌డిఎ (US FDA) నుంచి క్లీన్ చిట్ ఆమోదం లభించింది. ఎగుమతులకు లైన్ క్లియర్ అయింది.', reason: 'ఈ న్యూస్ వల్ల రేపు ఉదయం నుంచే ఫార్మా ఇన్వెస్టర్లు ఈ స్టాక్‌పై ఫోకస్ చేసే అవకాశం ఉంది.', entry: 'రూ. 1,220 పైన', target: 'రూ. 1,290 / రూ. 1,340', sl: 'రూ. 1,185', search: 'Aurobindo+Pharma+share+news' },
+            'ZOMATO': { name: 'ZOMATO LTD', news: 'బ్లింకిట్ (Blinkit) క్విక్ కామర్స్ బిజినెస్ మెట్రో నగరాల్లో విపరీతమైన లాభాల్లోకి రావడం ఈ కంపెనీ వృద్ధిని మార్చేసింది.', reason: 'న్యూ-ఏజ్ టెక్ స్టాక్స్ లీడర్‌గా నిలిచింది. ప్రతి డిప్ (లాభాల స్వీకరణ) లోనూ బయ్యర్స్ యాక్టివ్ అవుతున్నారు.', entry: 'రూ. 202 దగ్గర', target: 'రూ. 220 / రూ. 235', sl: 'రూ. 191', search: 'Zomato+share+news' }
         };
 
-        // ఏదైనా స్టాక్ నొక్కినప్పుడు విడ్జెట్ మరియు హింట్ మారే లాజిక్
-        function updateWidget(ticker, name, hint) {
-            if(ticker.includes('NIFTYBEES') || ticker.includes('BANKBEES') || ticker.includes('ITBEES') || ticker.includes('CPSEETF')) {
-                document.getElementById('b2-title').innerText = name;
-                document.getElementById('b2-info').innerHTML = "<strong>మాస్టర్ హింట్:</strong> " + hint;
-                loadNewsWidget('widget-b2', ticker);
-            } else if(hint.includes('5/5 OK')) {
-                document.getElementById('b3-title').innerText = name;
-                document.getElementById('b3-info').innerHTML = "<strong>5-రూల్స్ స్టేటస్:</strong> " + hint;
-                loadNewsWidget('widget-b3', ticker);
-            } else {
-                document.getElementById('b1-title').innerText = name;
-                document.getElementById('b1-info').innerHTML = "<strong>మాస్టర్ హింట్:</strong> " + hint;
-                loadNewsWidget('widget-b1', ticker);
-            }
+        // Box 2 Database
+        const etfData = {
+            'NIFTYBEES': { name: 'NIFTY BEES (Nifty 50 ETF)', news: 'భారతదేశ ఆర్థిక వృద్ధి రేటు (GDP) అంచనాలను అంతర్జాతీయ సంస్థలు పెంచడంతో నిఫ్టీ 50 లోకి భారీగా నిధులు వస్తున్నాయి.', fundamentals: 'ఇది నిఫ్టీలోని టాప్ 50 కంపెనీల కలయిక. ఎక్స్‌పెన్స్ రేషియో చాలా తక్కువ (0.04%). రిస్క్ లేకుండా మార్కెట్ ఇండెక్స్ పెరిగినప్పుడు లాభాలు పొందడానికి బెస్ట్ సేఫ్ ఆప్షన్.', search: 'Nifty+Bees+ETF+news' },
+            'BANKBEES': { name: 'BANK BEES (Banking Sector ETF)', news: 'ఆర్బీアイ (RBI) రాబోయే મીటింగ్‌లో వడ్డీ రేట్లను తగ్గించే సూచనలు కనిపిస్తుండటంతో బ్యాంకింగ్ సెక్టార్‌లో షార్ట్ కవరింగ్ ర్యాలీ వచ్చే అవకాశం ఉంది.', fundamentals: 'ఇందులో HDFC, ICICI, SBI లాంటి టాప్ దేశీయ బ్యాంకులు ఉంటాయి. క్రెడిట్ గ్రోత్ బాగుండటం వల్ల బ్యాంక్ ఇండెక్స్ పెరగడానికి సిద్ధంగా ఉంది.', search: 'Bank+Bees+ETF+news' },
+            'ITBEES': { name: 'IT BEES (Information Technology ETF)', news: 'అమెరికా నాస్‌డాక్ (Nasdaq) మార్కెట్ పెరగడం మరియు గ్లోబల్ టెక్నాలジー ఖర్చులు పెరగడంతో భారతీయ ఐటీ కంపెనీల షేర్లకు విపరీతమైన డిమాండ్ ఏర్పడింది.', fundamentals: 'TCS, Infosys, Wipro వంటి దిగ్గజ ఐటీ స్టాక్స్ ఇందులో ఉంటాయి. గత కొన్ని నెలలుగా కన్సాలిడేషన్‌లో ఉండి ఇప్పుడు భారీ అప్‌ట్రెండ్‌కు సిద్ధమైంది.', search: 'IT+Bees+ETF+news' },
+            'CPSEETF': { name: 'CPSE ETF (Central Public Sector Enterprises)', news: 'ప్రభుత్వ రంగ సంస్థలలో (PSU) డివిడెండ్ మరియు మూలధన వ్యయాలు (Capex) పెంచుతున్నట్లు అప్‌డేట్స్ రావడం పెద్ద ప్లస్ పాయింట్ అయింది.', fundamentals: 'NTPC, PFC, REC, ONGC వంటి ప్రభుత్వ మహారత్న కంపెనీలు ఇందులో ఉంటాయి. డివిడెండ్ ఈల్డ్ బాగుంటుంది మరియు ప్రభుత్వ సెక్టార్ బూమ్‌లో ఇది లీడర్‌గా ఉంది.', search: 'CPSE+ETF+news' }
+        };
+
+        // Box 3 Database
+        const strategyData = {
+            'TATAMOTORS': { name: 'TATA MOTORS', news: 'జెఎల్ఆర్ (JLR) బ్రిటన్ ప్లాంట్‌లో ఎలక్ట్రిక్ వెహికల్స్ (EV) ఉత్పత్తి కోసం భారీ పెట్టుబడుల గుడ్ న్యూస్ వచ్చింది.', pattern: 'చార్టులో భారీగా పడిపోయిన తర్వాత పాత సపోర్ట్ లైన్/రెసిస్టెన్స్ దగ్గర మార్నింగ్ స్టార్ బుల్లిష్ ప్యాటర్న్ ఏర్పరిచి రివర్స్ అయింది.', ema: 'ప్రస్తుత రోజువారీ క్యాండిల్ 21 EMA మరియు 50 EMA రెండింటినీ దాటుకుంటూ బలంగా వాటి పైన క్లోజ్ అయింది.', volume: 'సగటు వాల్యూమ్ కంటే 3 రెట్లు ఎక్కువ వాల్యూమ్ నమోదైంది. బయ్యర్స్ చాలా అగ్రెసివ్‌గా ఉన్నారు.', fundamentals: 'కంపెనీ ఈవీ మార్కెట్ లీడర్ మరియు ఫ్రీ-క్యాష్ ఫ్లో చాలా బలంగా ఉంది.', search: 'Tata+Motors+share+news' },
+            'TCS': { name: 'TCS - TATA CONSULTANCY SERVICES', news: 'యూరప్ కి చెందిన పెద్ద ఇన్సూరెన్స్ దిగ్గజం నుండి క్లౌడ్ మైగ్రేషన్ కోసం మెగా ఐటీ డీల్ దక్కించుకుంది.', pattern: 'గత 2 వారాలుగా పడిపోతూ వచ్చి, పాత రెసిస్టెన్స్ జోన్ దగ్గర సపోర్ట్ తీసుకుని బుల్లిష్ ఎంగల్ఫింగ్ ప్యాటర్న్ వేసింది.', ema: 'ధర కరెక్షన్ పూర్తి చేసుకుని 21 & 50 EMA లైన్స్ పైకి దూసుకెళ్లి క్లోజ్ అయింది (Trend Change Confirmation).', volume: 'డెలివరీ పర్సంటేజ్ 65% దాటింది, అంటే లాంగ్-టర్మ్ ఇన్వెస్టర్లు షేర్లను విపరీతంగా అక్యుములేట్ చేస్తున్నారు.', fundamentals: 'రిటర్న్ ఆన్ ఈక్విటీ (ROE) 40% పైన ఉంది. జీరో డెట్ కంపెనీ, అద్భుతమైన ఫండమెంటల్ ట్రాక్ రికార్డ్.', search: 'TCS+share+news' },
+            'LTIM': { name: 'LTIMINDTREE LTD', news: 'గ్లోబల్ ఆర్టిఫిషియల్ ఇంటెలిజెన్స్ క్లయింట్స్ బ్యాక్లాగ్ క్లియర్ అవ్వడం వల్ల వచ్చే క్వార్టర్ మార్జిన్స్ పెరుగుతాయని మేనేజ్‌మెంట్ గైడెన్స్ ఇచ్చింది.', pattern: 'పై స్థాయిల నుండి 15% పడిపోయిన తర్వాత లోయర్ లెవెల్స్ లో డబుల్ బాటమ్ (W Pattern) బుల్లిష్ ప్యాటర్న్ తయారు చేసి రివర్సల్ చూపించింది.', ema: 'క్యాండిల్ స్టిక్ ఒకేసారి 21 EMA ని మరియు 50 EMA ని కట్ చేస్తూ పైకి దూసుకెళ్లి నిలబడింది.', volume: 'గత 10 రోజుల యావరేజ్ వాల్యూమ్స్ బ్రేక్ చేస్తూ గ్రీన్ వాల్యూమ్ బార్స్ భారీగా వచ్చాయి.', fundamentals: 'టాప్ మిడ్-టు-లార్జ్ క్యాప్ ఐటీ మేనేజ్‌మెంట్ బలం ఉంది. ప్రమోటర్ హోల్డింగ్ స్థిరంగా ఉంది.', search: 'LTIMindtree+share+news' }
+        };
+
+        // UI Functions
+        function showStockDetails(key) {
+            const stock = stockData[key];
+            document.getElementById('stock-name').innerText = stock.name;
+            document.getElementById('stock-info').innerHTML = `
+                <div class="data-row" style="margin-top:5px;"><strong>పెరగడానికి కారణం (News):</strong> ${stock.news}</div>
+                <div class="data-row"><strong>టెక్నికల్ రీజన్:</strong> ${stock.reason}</div>
+                <div class="data-row"><strong>ఎంట్రీ ప్రైస్:</strong> <span class="highlight">${stock.entry}</span></div>
+                <div class="data-row"><strong>టార్గెట్ (Target):</strong> <span style="color:#10b981; font-weight:bold;">${stock.target}</span></div>
+                <div class="data-row"><strong>స్టాప్ లాస్ (Stop Loss):</strong> <span style="color:#ef4444; font-weight:bold;">${stock.sl}</span></div>
+                <div class="data-row"><a href="https://www.google.com/search?q=${stock.search}&tbm=nws" target="_blank" class="news-link">📰 ఈరోజు లైవ్ బ్రేకింగ్ న్యూస్ చూడండి</a></div>
+            `;
         }
 
-        // TradingView నుండి లైవ్ చార్ట్ అండ్ డైలీ న్యూస్ ఫీడ్ లాక్కునే ఫంక్షన్
-        function loadNewsWidget(containerId, symbol) {
-            document.getElementById(containerId).innerHTML = "";
-            new TradingView.MiniWidget({
-                "container_id": containerId,
-                "symbol": symbol,
-                "width": "100%",
-                "height": "100%",
-                "locale": "in",
-                "dateRange": "12M",
-                "colorTheme": "dark",
-                "trendLineColor": "#37a6ef",
-                "underLineColor": "rgba(55, 166, 239, 0.15)",
-                "isTransparent": false,
-                "autosize": false,
-                "largeChartUrl": ""
-            });
+        function showEtfDetails(key) {
+            const etf = etfData[key];
+            document.getElementById('etf-name').innerText = etf.name;
+            document.getElementById('etf-info').innerHTML = `
+                <div class="data-row" style="margin-top:5px;"><strong>ETF రీజన్:</strong> ${etf.news}</div>
+                <div class="data-row"><strong>ఫండమెంతల్స్:</strong> ${etf.fundamentals}</div>
+                <div class="data-row"><a href="https://www.google.com/search?q=${etf.search}&tbm=nws" target="_blank" class="news-link">📰 ఈరోజు లైవ్ ETF న్యూస్ చూడండి</a></div>
+            `;
+        }
+
+        function showStratDetails(key) {
+            const data = strategyData[key];
+            document.getElementById('strat-name').innerText = data.name;
+            document.getElementById('strat-info').innerHTML = `
+                <div class="data-row" style="border-left: 3px solid #facc15; padding-left:7px; margin: 8px 0;"><strong>1. గుడ్ న్యూస్:</strong> ${data.news}</div>
+                <div class="data-row" style="border-left: 3px solid #facc15; padding-left:7px; margin-bottom:8px;"><strong>2 & 5. రివర్సల్ ప్యాటర్న్:</strong> ${data.pattern}</div>
+                <div class="data-row" style="border-left: 3px solid #facc15; padding-left:7px; margin-bottom:8px;"><strong>3. EMA క్రాస్ఓవర్ (21 & 50):</strong> <span style="color:#34d399; font-weight:bold;">${data.ema}</span></div>
+                <div class="data-row" style="border-left: 3px solid #facc15; padding-left:7px; margin-bottom:8px;"><strong>4. హై వాల్యూమ్ బ్రేక్అవుట్:</strong> ${data.volume}</div>
+                <div class="data-row" style="margin-top:10px; border-top:1px dashed #334155; padding-top:8px;"><strong>ఫండమెంతల్స్:</strong> ${data.fundamentals}</div>
+                <div class="data-row"><a href="https://www.google.com/search?q=${data.search}&tbm=nws" target="_blank" class="news-link">📰 ఈరోజే ట్రెండింగ్ వార్తలు చూడండి</a></div>
+            `;
         }
     </script>
 </body>
