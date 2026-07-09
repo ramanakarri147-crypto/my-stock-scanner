@@ -1,12 +1,19 @@
 {
-    "last_updated": "2026-07-08 12:18:39",
+    "last_updated": "2026-07-09 13:47:23",
     "stocks": [
         {
             "name": "BHARTIARTL",
-            "price": 1888.1,
+            "price": 1931.1,
             "news": "BHARTIARTL \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (1888.1) is above 21 EMA (1874.56) & 50 EMA (1863.52)",
-            "volume_status": "High Volume Detected! Today: 6188593 | Avg: 4636887"
+            "ema_status": "Price (1931.1) is above 21 EMA (1879.7) & 50 EMA (1865.99)",
+            "volume_status": "High Volume Detected! Today: 11144831 | Avg: 5013176"
+        },
+        {
+            "name": "ICICIBANK",
+            "price": 1380.7,
+            "news": "ICICIBANK \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (1380.7) is above 21 EMA (1366.11) & 50 EMA (1333.36)",
+            "volume_status": "High Volume Detected! Today: 13948753 | Avg: 13445096"
         }
     ]
 }
