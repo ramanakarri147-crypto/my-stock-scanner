@@ -1,12 +1,4 @@
 {
-    "last_updated": "2026-07-23 12:22:14",
-    "stocks": [
-        {
-            "name": "BHARTIARTL",
-            "price": 1931.0,
-            "news": "BHARTIARTL \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (1931.0) is above 21 EMA (1910.69) & 50 EMA (1884.52)",
-            "volume_status": "High Volume Detected! Today: 5612019 | Avg: 5489742"
-        }
-    ]
+    "last_updated": "2026-07-24 12:17:12",
+    "stocks": []
 }
