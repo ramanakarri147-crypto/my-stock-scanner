@@ -1,26 +1,19 @@
 {
-    "last_updated": "2026-07-31 12:53:54",
+    "last_updated": "2026-08-03 13:38:20",
     "stocks": [
         {
-            "name": "BHARTIARTL",
-            "price": 1972.0,
-            "news": "BHARTIARTL \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (1972.0) is above 21 EMA (1907.99) & 50 EMA (1875.83)",
-            "volume_status": "High Volume Detected! Today: 6528923 | Avg: 5539037"
-        },
-        {
             "name": "SBIN",
-            "price": 1027.4,
+            "price": 1045.0,
             "news": "SBIN \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (1027.4) is above 21 EMA (1025.89) & 50 EMA (1023.62)",
-            "volume_status": "High Volume Detected! Today: 10920498 | Avg: 8280769"
+            "ema_status": "Price (1045.0) is above 21 EMA (1027.63) & 50 EMA (1024.08)",
+            "volume_status": "High Volume Detected! Today: 10488126 | Avg: 7705642"
         },
         {
             "name": "JIOFIN",
-            "price": 256.46,
+            "price": 263.0,
             "news": "JIOFIN \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (256.46) is above 21 EMA (240.81) & 50 EMA (239.49)",
-            "volume_status": "High Volume Detected! Today: 42826329 | Avg: 18604050"
+            "ema_status": "Price (263.0) is above 21 EMA (242.83) & 50 EMA (240.46)",
+            "volume_status": "High Volume Detected! Today: 36540443 | Avg: 25128632"
         }
     ]
 }
