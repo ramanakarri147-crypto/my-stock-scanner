@@ -1,12 +1,40 @@
 {
-    "last_updated": "2026-08-11 11:41:18",
+    "last_updated": "2026-08-12 11:42:27",
     "stocks": [
         {
-            "name": "INFY",
-            "price": 1190.7,
-            "news": "INFY \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (1190.7) is above 21 EMA (1133.47) & 50 EMA (1120.22)",
-            "volume_status": "High Volume Detected! Today: 10111858 | Avg: 8937443"
+            "name": "TCS",
+            "price": 2349.7,
+            "news": "TCS \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (2349.7) is above 21 EMA (2343.24) & 50 EMA (2280.27)",
+            "volume_status": "High Volume Detected! Today: 7019787 | Avg: 2825531"
+        },
+        {
+            "name": "BHARTIARTL",
+            "price": 1945.0,
+            "news": "BHARTIARTL \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (1945.0) is above 21 EMA (1928.86) & 50 EMA (1894.02)",
+            "volume_status": "High Volume Detected! Today: 10867265 | Avg: 6633627"
+        },
+        {
+            "name": "SBIN",
+            "price": 1082.0,
+            "news": "SBIN \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (1082.0) is above 21 EMA (1049.63) & 50 EMA (1035.29)",
+            "volume_status": "High Volume Detected! Today: 17669105 | Avg: 15604073"
+        },
+        {
+            "name": "JIOFIN",
+            "price": 256.05,
+            "news": "JIOFIN \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (256.05) is above 21 EMA (249.68) & 50 EMA (244.3)",
+            "volume_status": "High Volume Detected! Today: 13280075 | Avg: 12468824"
+        },
+        {
+            "name": "LT",
+            "price": 4020.0,
+            "news": "LT \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (4020.0) is above 21 EMA (3976.11) & 50 EMA (3960.05)",
+            "volume_status": "High Volume Detected! Today: 2225439 | Avg: 1339399"
         }
     ]
 }
