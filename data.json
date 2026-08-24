@@ -1,12 +1,12 @@
 {
-    "last_updated": "2026-08-21 11:21:32",
+    "last_updated": "2026-08-24 11:24:15",
     "stocks": [
         {
             "name": "LT",
-            "price": 4093.0,
+            "price": 4090.0,
             "news": "LT \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (4093.0) is above 21 EMA (4022.62) & 50 EMA (3989.99)",
-            "volume_status": "High Volume Detected! Today: 1258681 | Avg: 1120535"
+            "ema_status": "Price (4090.0) is above 21 EMA (4028.75) & 50 EMA (3995.99)",
+            "volume_status": "High Volume Detected! Today: 1369454 | Avg: 1185508"
         }
     ]
 }
