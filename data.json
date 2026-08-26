@@ -1,19 +1,12 @@
 {
-    "last_updated": "2026-08-25 11:23:40",
+    "last_updated": "2026-08-26 11:25:49",
     "stocks": [
         {
-            "name": "ICICIBANK",
-            "price": 1422.7,
-            "news": "ICICIBANK \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (1422.7) is above 21 EMA (1418.87) & 50 EMA (1395.02)",
-            "volume_status": "High Volume Detected! Today: 7973577 | Avg: 7389370"
-        },
-        {
             "name": "LT",
-            "price": 4119.0,
+            "price": 4038.1,
             "news": "LT \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (4119.0) is above 21 EMA (4031.39) & 50 EMA (3997.05)",
-            "volume_status": "High Volume Detected! Today: 1313304 | Avg: 1185508"
+            "ema_status": "Price (4038.1) is above 21 EMA (4037.08) & 50 EMA (4007.32)",
+            "volume_status": "High Volume Detected! Today: 1384215 | Avg: 1238274"
         }
     ]
 }
