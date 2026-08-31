@@ -1,4 +1,26 @@
 {
-    "last_updated": "2026-08-28 21:18:51",
-    "stocks": []
+    "last_updated": "2026-08-31 17:50:51",
+    "stocks": [
+        {
+            "name": "TCS",
+            "price": 2399.3,
+            "news": "TCS \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (2399.3) is above 21 EMA (2321.32) & 50 EMA (2294.02)",
+            "volume_status": "High Volume Detected! Today: 2891194 | Avg: 2401650"
+        },
+        {
+            "name": "ICICIBANK",
+            "price": 1454.0,
+            "news": "ICICIBANK \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (1454.0) is above 21 EMA (1424.97) & 50 EMA (1403.13)",
+            "volume_status": "High Volume Detected! Today: 15327613 | Avg: 7526576"
+        },
+        {
+            "name": "LT",
+            "price": 4044.9,
+            "news": "LT \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (4044.9) is above 21 EMA (4037.75) & 50 EMA (4010.13)",
+            "volume_status": "High Volume Detected! Today: 1552848 | Avg: 1225127"
+        }
+    ]
 }
