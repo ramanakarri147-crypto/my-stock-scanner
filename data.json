@@ -1,19 +1,33 @@
 {
-    "last_updated": "2026-11-05 18:29:29",
+    "last_updated": "2026-11-06 17:48:00",
     "stocks": [
         {
             "name": "TCS",
-            "price": 2495.7,
+            "price": 2498.5,
             "news": "TCS \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (2495.7) is above 21 EMA (2405.35) & 50 EMA (2318.69)",
-            "volume_status": "High Volume Detected! Today: 6767880 | Avg: 3178462"
+            "ema_status": "Price (2498.5) is above 21 EMA (2413.82) & 50 EMA (2326.41)",
+            "volume_status": "High Volume Detected! Today: 4921487 | Avg: 3846538"
+        },
+        {
+            "name": "BHARTIARTL",
+            "price": 2107.2,
+            "news": "BHARTIARTL \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (2107.2) is above 21 EMA (1953.36) & 50 EMA (1903.68)",
+            "volume_status": "High Volume Detected! Today: 17094431 | Avg: 10742193"
         },
         {
             "name": "ICICIBANK",
-            "price": 1500.0,
+            "price": 1571.2,
             "news": "ICICIBANK \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
-            "ema_status": "Price (1500.0) is above 21 EMA (1395.74) & 50 EMA (1384.78)",
-            "volume_status": "High Volume Detected! Today: 38319694 | Avg: 11844813"
+            "ema_status": "Price (1571.2) is above 21 EMA (1411.69) & 50 EMA (1392.22)",
+            "volume_status": "High Volume Detected! Today: 40377834 | Avg: 17198985"
+        },
+        {
+            "name": "INFY",
+            "price": 1181.4,
+            "news": "INFY \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
+            "ema_status": "Price (1181.4) is above 21 EMA (1113.39) & 50 EMA (1086.34)",
+            "volume_status": "High Volume Detected! Today: 15299630 | Avg: 11190498"
         }
     ]
 }
