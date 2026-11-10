@@ -1,26 +1,26 @@
 {
-    "last_updated": "2026-11-09 21:16:19",
+    "last_updated": "2026-11-10 18:27:27",
     "stocks": [
         {
             "name": "HDFCBANK",
             "price": 798.15,
             "news": "HDFCBANK \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
             "ema_status": "Price (798.15) is above 21 EMA (725.8) & 50 EMA (723.09)",
-            "volume_status": "High Volume Detected! Today: 64825158 | Avg: 50757941"
+            "volume_status": "High Volume Detected! Today: 64826814 | Avg: 50757941"
         },
         {
             "name": "ICICIBANK",
             "price": 1589.0,
             "news": "ICICIBANK \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
             "ema_status": "Price (1589.0) is above 21 EMA (1427.81) & 50 EMA (1399.98)",
-            "volume_status": "High Volume Detected! Today: 27470436 | Avg: 23170856"
+            "volume_status": "High Volume Detected! Today: 27542158 | Avg: 23170856"
         },
         {
             "name": "LT",
             "price": 4185.0,
             "news": "LT \u0c32\u0c4b \u0c2c\u0c32\u0c2e\u0c48\u0c28 \u0c2c\u0c41\u0c32\u0c4d\u0c32\u0c3f\u0c37\u0c4d \u0c30\u0c3f\u0c35\u0c30\u0c4d\u0c38\u0c32\u0c4d \u0c2e\u0c30\u0c3f\u0c2f\u0c41 \u0c2c\u0c4d\u0c30\u0c47\u0c15\u0c4d \u0c05\u0c35\u0c41\u0c1f\u0c4d \u0c38\u0c02\u0c15\u0c47\u0c24\u0c3e\u0c32\u0c41 \u0c15\u0c28\u0c3f\u0c2a\u0c3f\u0c38\u0c4d\u0c24\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c2f\u0c3f.",
             "ema_status": "Price (4185.0) is above 21 EMA (3872.01) & 50 EMA (3859.25)",
-            "volume_status": "High Volume Detected! Today: 3250136 | Avg: 2787665"
+            "volume_status": "High Volume Detected! Today: 3251721 | Avg: 2787665"
         }
     ]
 }
